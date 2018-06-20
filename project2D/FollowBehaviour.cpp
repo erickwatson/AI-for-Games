@@ -22,7 +22,11 @@ eBehaviourResult FollowBehaviour::execute(GameObject* gameObject, float deltaTim
 
 	gameObject->getPosition(&x, &y);
 	m_target->getPosition(&target_x, &target_y);
+	// Calculate distance and return float m_distance().
 
+	if (m_distance < 0)
+		// Get the vector describing the direction of the target and normalise it
+		// Move this agent in this direction at the agent's maximum speed
 
 
 	return eBehaviourResult::SUCCESS;
