@@ -1,5 +1,6 @@
 #pragma once
-
+#include "GameObject.h"
+#include "FollowBehaviour.h"
 #include "Application.h"
 #include "Renderer2D.h"
 
@@ -18,9 +19,13 @@ public:
 protected:
 
 	aie::Renderer2D*	m_2dRenderer;
-	aie::Texture*		m_texture;
-	aie::Texture*		m_shipTexture;
 	aie::Font*			m_font;
+
+	GameObject m_player;
+	FollowBehaviour m_playerFollowBehaviour;
+
+	GameObject m_enemy;
+	FollowBehaviour m_followBehaviour;
 
 	float m_cameraX, m_cameraY;
 	float m_timer;
