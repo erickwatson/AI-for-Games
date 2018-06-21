@@ -12,7 +12,7 @@ enum eBehaviourResult {
 class Behaviour
 {
 public:
-
+	float m_distance = 0;
 	// Empty constructors and destructors for base class
 	Behaviour();
 	virtual	~Behaviour();

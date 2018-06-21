@@ -18,5 +18,7 @@ private:
 	float m_speed;
 	GameObject* m_target;
 
+
+
 };
 

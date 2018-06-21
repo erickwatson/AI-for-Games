@@ -24,6 +24,7 @@ bool Application2D::startup() {
 	m_followBehaviour.setTarget(&m_player);
 
 	m_player.setPosition(getWindowWidth() * 0.5f, getWindowHeight() * 0.5f);
+	m_enemy.setPosition(getWindowWidth() * 0.7f, getWindowHeight() * 0.7f);
 
 	m_player.addBehaviour(&m_playerFollowBehaviour);
 	m_enemy.addBehaviour(&m_followBehaviour);
@@ -114,7 +115,7 @@ void Application2D::draw() {
 	m_2dRenderer->drawCircle(x, y, 10);
 
 	// Draw enemy as a red circle
-	m_player.getPosition(&x, &y);
+	m_enemy.getPosition(&x, &y);
 	m_2dRenderer->setRenderColour(1, 0, 0);
 	m_2dRenderer->drawCircle(x, y, 10);
 
