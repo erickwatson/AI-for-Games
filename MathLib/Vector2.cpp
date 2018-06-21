@@ -28,6 +28,11 @@ Vector2& Vector2::operator -= (const Vector2& other) {
 	return *this;
 }
 
+Vector2& Vector2::operator += (const Vector2& other) {
+	x += other.x; y += other.y;
+	return *this;
+}
+
 Vector2 Vector2::operator * (float scalar) const {
 	return { x * scalar, y * scalar};
 }

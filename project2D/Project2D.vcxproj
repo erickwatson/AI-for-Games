@@ -168,6 +168,7 @@
     <ClCompile Include="Behaviour.cpp" />
     <ClCompile Include="FollowBehaviour.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="KeyboardBehaviour.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +176,7 @@
     <ClInclude Include="Behaviour.h" />
     <ClInclude Include="FollowBehaviour.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="KeyboardBehaviour.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MathLib\MathLib.vcxproj">

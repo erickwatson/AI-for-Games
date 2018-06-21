@@ -17,16 +17,16 @@ bool Application2D::startup() {
 	m_2dRenderer = new aie::Renderer2D();
 	m_font = new aie::Font("./font/consolas.ttf", 32);
 	
-	m_playerFollowBehaviour.setSpeed(100);
-	m_playerFollowBehaviour.setTarget(&m_enemy);
-
+	
+	
 	m_followBehaviour.setSpeed(100);
 	m_followBehaviour.setTarget(&m_player);
 
 	m_player.setPosition(getWindowWidth() * 0.5f, getWindowHeight() * 0.5f);
 	m_enemy.setPosition(getWindowWidth() * 0.7f, getWindowHeight() * 0.7f);
 
-	m_player.addBehaviour(&m_playerFollowBehaviour);
+
+	m_player.addBehaviour(&m_commandInput);
 	m_enemy.addBehaviour(&m_followBehaviour);
 
 	m_cameraX = 0;
@@ -52,7 +52,8 @@ void Application2D::update(float deltaTime) {
 
 	// input example
 	aie::Input* input = aie::Input::getInstance();
-
+	
+	 // Move camera
 	// use arrow keys to move camera
 	if (input->isKeyDown(aie::INPUT_KEY_UP))
 		m_cameraY += 500.0f * deltaTime;
@@ -65,6 +66,11 @@ void Application2D::update(float deltaTime) {
 
 	if (input->isKeyDown(aie::INPUT_KEY_RIGHT))
 		m_cameraX += 500.0f * deltaTime;
+	
+
+	
+
+	
 
 	// exit the application
 	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
@@ -107,17 +113,17 @@ void Application2D::draw() {
 	m_2dRenderer->drawSprite(nullptr, 400, 400, 50, 50, 3.14159f * 0.25f, 1);
 	*/
 
-	float x = 0, y = 0;
+	
 
 	// Draw player as a green circle
-	m_player.getPosition(&x, &y);
+	Vector2 position = m_player.getPosition();
 	m_2dRenderer->setRenderColour(0, 1, 0);
-	m_2dRenderer->drawCircle(x, y, 10);
+	m_2dRenderer->drawCircle(position.x, position.y, 10);
 
 	// Draw enemy as a red circle
-	m_enemy.getPosition(&x, &y);
+	position = m_enemy.getPosition();
 	m_2dRenderer->setRenderColour(1, 0, 0);
-	m_2dRenderer->drawCircle(x, y, 10);
+	m_2dRenderer->drawCircle(position.x, position.y, 10);
 
 	// output some text, uses the last used colour
 	char fps[32];

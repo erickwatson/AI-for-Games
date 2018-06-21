@@ -3,6 +3,7 @@
 #include "FollowBehaviour.h"
 #include "Application.h"
 #include "Renderer2D.h"
+#include "KeyboardBehaviour.h"
 
 class Application2D : public aie::Application {
 public:
@@ -22,7 +23,7 @@ protected:
 	aie::Font*			m_font;
 
 	GameObject m_player;
-	FollowBehaviour m_playerFollowBehaviour;
+	KeyboardBehaviour m_commandInput;
 
 	GameObject m_enemy;
 	FollowBehaviour m_followBehaviour;
